@@ -5,17 +5,15 @@ Creates a postgresql container on OS and then loads wine review data from a data
 ```sh
 oc cluster up
 
-oc new-project winemap-namespace
+oc new-project winemap
 
-oc new-app --template=postgresql-persistent -p POSTGRESQL_USER=username -p POSTGRESQL_PASSWORD=password -p POSTGRESQL_DATABASE=wineDb
+oc new-app --template=postgresql-ephemeral -p POSTGRESQL_USER=username -p POSTGRESQL_PASSWORD=password -p POSTGRESQL_DATABASE=wineDb
 ```
-    
-clone this repo
 
 ```sh
-oc create -f wine-data-loader.yaml
+oc create -f https://github.com/radanalyticsio/winemap-data-loader/blob/master/wine-data-loader.yaml
 
-oc create -f secret.yaml
+oc create -f https://github.com/radanalyticsio/winemap-data-loader/blob/master/secret.yaml
 
 oc new-app --template=wine-data-loader
 ```
