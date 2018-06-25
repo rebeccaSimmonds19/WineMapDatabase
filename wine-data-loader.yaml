@@ -21,25 +21,13 @@ objects:
             image: docker.io/radanalyticsio/winemap-data-loader
             env:
               - name: SERVER
-                valueFrom:
-                  secretKeyRef:
-                    name: winemap-secret
-                    key: server
+                value: postgresql
               - name: DBNAME
-                valueFrom:
-                  secretKeyRef:
-                    name: winemap-secret
-                    key: dbname
+                value: wineDb
               - name: USER
-                valueFrom:
-                  secretKeyRef:
-                    name: winemap-secret
-                    key: username
+                value: username
               - name: PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: winemap-secret
-                    key: password
+                value: password
         restartPolicy: OnFailure
 
 parameters:
