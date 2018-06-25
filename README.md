@@ -16,7 +16,5 @@ oc new-app --template=postgresql-persistent \
 ```sh
 oc create -f https://raw.githubusercontent.com/radanalyticsio/winemap-data-loader/master/wine-data-loader.yaml
 
-oc create -f https://raw.githubusercontent.com/radanalyticsio/winemap-data-loader/master/secret.yaml
-
 oc new-app --template=wine-data-loader
 ```
